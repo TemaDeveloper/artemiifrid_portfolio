@@ -26,7 +26,7 @@ function initProjects() {
             description: 'Migrants community sticked together and decided to create the product that helps people to find new friends, work collegues for work or business, dating, having fun and many more features in SparkEyes.',
             image: 'logo.jpg',
             category: 'mobile',
-            technologies: ['Android', 'Flutter', 'Rest API', 'Firebase', 'Jira'],
+            technologies: ['Android', 'Flutter', 'Rest API', 'Firebase', 'Jira', 'MVC', 'MVVM'],
             liveLink: '',
             sourceLink: ''
         },
@@ -76,7 +76,7 @@ function initProjects() {
             description: 'Cooking Application where people can upload their own recipes, like others, and save the favorite ones! Beautiful UI and robust backend attract users.',
             image: 'cookery-days.png',
             category: 'mobile',
-            technologies: ['Flutter', 'PocketBase', 'Android', 'IOS', 'Rest API', 'Material Design', 'UI/UX'],
+            technologies: ['Flutter', 'PocketBase', 'Android', 'IOS', 'Rest API', 'Material Design', 'UI/UX', 'MVC'],
             liveLink: '',
             sourceLink: 'https://github.com/TemaDeveloper/flutter_demo'
         },
