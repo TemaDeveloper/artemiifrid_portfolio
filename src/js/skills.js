@@ -20,19 +20,19 @@ function initSkills() {
             category: 'Programming Languages',
             items: [
                 { name: 'Flutter', level: 90 },
-                { name: 'Java - Android', level: 80 },
+                { name: 'Java', level: 80 },
                 { name: 'JavaScript', level: 70 },
                 { name: 'Rust', level: 75 },
-                { name: 'SQL (Oracle)', level: 75 }
+                { name: 'SQL', level: 75 }
             ]
         },
         {
             category: 'Tools',
             items: [
                 { name: 'Git & GitHub', level: 100 },
-                { name: 'Linux/Windows/macOS', level: 85 },
+                { name: 'GitHub Actions', level: 85 },
                 { name: 'Docker', level: 70 },
-                { name: 'Testing & Debugging', level: 95 },
+                { name: 'AWS', level: 95 },
                 { name: 'Jira', level: 100 }
             ]
         },
