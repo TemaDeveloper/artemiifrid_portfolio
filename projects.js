@@ -25,7 +25,7 @@ function initProjects() {
       title: "AI Financial Company",
       description:
         "Developed and maintained the core banking platform for a Toronto-based financial company. This platform helps clients apply for loans and manage investments with minimal risk. I focused on building and integrating secure, scalable financial services.",
-      image: "src/assets/images/ai-financial-logo.jpg", 
+      image: "ai-financial-logo.jpg", 
       category: "web",
       technologies: [
         "Spring Boot",
@@ -46,7 +46,7 @@ function initProjects() {
       title: "SparkEyes",
       description:
         "Spearheaded the development of a cross-platform mobile application for both iOS and Android, enhancing social connectivity through innovative features. Collaborated with a team of developers and designers, managing project workflows in Jira. The app helps people find new friends, work colleagues, and connect for business or social purposes within a cohesive migrant community.",
-      image: "src/assets/images/sparkeyes-logo.png",
+      image: "logo.jpg",
       category: "mobile",
       technologies: [
         "Flutter",
@@ -67,7 +67,7 @@ function initProjects() {
       title: "Donutly (Open-Source)",
       description:
         "An open-source personal library where users can add and share books they have read. The project is designed to be a collaborative platform, encouraging community contributions to improve its features and resolve issues under an open-source license.",
-      image: "src/assets/images/donutly-logo.png",
+      image: "donutly-logo.png",
       category: "web",
       technologies: [
         "Spring Boot",
