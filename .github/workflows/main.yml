@@ -23,8 +23,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          
 
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'src'
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
