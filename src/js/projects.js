@@ -25,7 +25,7 @@ function initProjects() {
       title: "AI Financial Company",
       description:
         "Developed and maintained the core banking platform for a Toronto-based financial company. This platform helps clients apply for loans and manage investments with minimal risk. I focused on building and integrating secure, scalable financial services.",
-      image: "/src/assets/ai-financial-logo.jpg", 
+      image: "assets/ai-financial-logo.jpg", 
       category: "web",
       technologies: [
         "Spring Boot",
@@ -46,7 +46,7 @@ function initProjects() {
       title: "SparkEyes",
       description:
         "Spearheaded the development of a cross-platform mobile application for both iOS and Android, enhancing social connectivity through innovative features. Collaborated with a team of developers and designers, managing project workflows in Jira. The app helps people find new friends, work colleagues, and connect for business or social purposes within a cohesive migrant community.",
-      image: "/src/assets/logo.jpg",
+      image: "assets/logo.jpg",
       category: "mobile",
       technologies: [
         "Flutter",
@@ -67,7 +67,7 @@ function initProjects() {
       title: "Donutly (Open-Source)",
       description:
         "An open-source personal library where users can add and share books they have read. The project is designed to be a collaborative platform, encouraging community contributions to improve its features and resolve issues under an open-source license.",
-      image: "/src/assets/donutly-logo.png",
+      image: "assets/donutly-logo.png",
       category: "web",
       technologies: [
         "Spring Boot",
@@ -91,7 +91,7 @@ function initProjects() {
       title: "Modern Portfolio",
       description:
         "A website for a construction company to automatically manage, update, and share projects with clients. Features include filtering by date and location, and a clean, modern user interface.",
-      image: "src/assets/portfolio.png",
+      image: "assets/portfolio.png",
       category: "web",
       technologies: [
         "Rust - Axum",
@@ -112,7 +112,7 @@ function initProjects() {
       title: "Spectra (Pet Project)",
       description:
         "An end-to-end encrypted chat application where users can communicate privately within groups and one-on-one. The project focuses on robust security and real-time messaging.",
-      image: "src/assets/spectra.png",
+      image: "assets/spectra.png",
       category: "backend",
       technologies: [
         "RSA encryption",
@@ -131,7 +131,7 @@ function initProjects() {
       title: "Blog Pr (Pet Project)",
       description:
         "A backend project focused on establishing secure authentication and authorization services using OAuth 2.0. It serves as a foundational service for a blogging platform.",
-      image: "src/assets/auth.png",
+      image: "assets/auth.png",
       category: "backend",
       technologies: [
         "OAuth 2.0",
@@ -149,7 +149,7 @@ function initProjects() {
       title: "BusTourApp",
       description:
         "Developed a demo guide app as a freelance project for a startup. The application provides tour information and leverages a robust backend for data management.",
-      image: "src/assets/bustourapp.png",
+      image: "assets/bustourapp.png",
       category: "mobile",
       technologies: [
         "Java - Android",
@@ -167,7 +167,7 @@ function initProjects() {
       title: "CookeryDays",
       description:
         "A cooking application where users can upload, share, like, and save their favorite recipes. The app features a beautiful UI and a robust backend to attract and retain users.",
-      image: "src/assets/cookery-days.png",
+      image: "assets/cookery-days.png",
       category: "mobile",
       technologies: [
         "Flutter",
@@ -186,7 +186,7 @@ function initProjects() {
       title: "NightCaps",
       description:
         "A startup project to help people improve their sleep. The application includes features for contacting psychologists and taking surveys, as part of its comprehensive suite of wellness services.",
-      image: "src/assets/nightcaps_logo.png",
+      image: "assets/nightcaps_logo.png",
       category: "web",
       technologies: ["Flutter", "iOS", "Web", "Firebase", "Jira"],
       liveLink: "",

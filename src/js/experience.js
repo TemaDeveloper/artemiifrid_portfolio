@@ -40,11 +40,11 @@ function initExperience() {
       company: "SparkEyes",
       period: "January 2025 - Present",
       description:
-        "Spearheaded the development of a cross-platform mobile application for both iOS and Android platforms, enhancing social connectivity through innovative features. Utilized **Flutter** for robust UI development, **BLOC** for efficient state management, **Retrofit** for networking, **Firebase** for backend services, and **ObjectBox** for local data storage, all within an **MVVM/MVC** architectural pattern to significantly boost application maintainability and scalability. Collaborated closely on the **Spring Boot** backend development, establishing and maintaining seamless **RESTful communication** between the mobile application and the backend, which ensured high performance and smooth data integration.",
+        "Spearheaded development for a cross-platform dating app designed to help users connect for dating, friendship, and professional networking. The app's innovative features prioritize social connectivity and fostering meaningful interactions.",
       responsibilities: [
-        "Spearheaded the development of a cross-platform mobile application for both iOS and Android platforms, enhancing social connectivity through innovative features.",
-        "Utilized Flutter for robust UI development, BLOC for efficient state management, Retrofit for networking, Firebase for backend services, and ObjectBox for local data storage, all within an MVVM/MVC architectural pattern to significantly boost application maintainability and scalability.",
-        "Collaborated closely on the Spring Boot backend development, establishing and maintaining seamless RESTful communication between the mobile application and the backend, which ensured high performance and smooth data integration.",
+        "Led the development of a cross-platform mobile application for both iOS and Android, focusing on an intuitive user experience.",
+        "Utilized Flutter for UI, BLOC for state management, Retrofit for networking, Firebase for backend services, and ObjectBox for local data storage within an MVVM/MVC architecture.",
+        "Collaborated on the Spring Boot backend, establishing seamless RESTful communication for high-performance data integration.",
       ],
       technologies: [
         "Flutter",
