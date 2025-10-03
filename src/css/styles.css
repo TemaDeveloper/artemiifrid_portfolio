@@ -284,6 +284,7 @@ section {
   }
   
   /* Alternate sections with gradient background */
+  
   .experience, .projects {
     background: linear-gradient(135deg, var(--bg-alt-color) 0%, var(--bg-alt-color) 90%, var(--primary-color-dark) 150%);
     transition: background 0.4s ease, color 0.4s ease;
@@ -1219,79 +1220,107 @@ section {
 
 .timeline {
     position: relative;
-    max-width: 1200px;
+    /* Increase this value to allow cards to be wider on large screens */
+    max-width: 1100px; 
     margin: 0 auto;
 }
 
+/* The vertical "road" line - CORRECTED */
 .timeline::after {
     content: '';
     position: absolute;
     width: 4px;
     background: linear-gradient(to bottom, var(--primary-color-dark), var(--primary-color), var(--highlight-color));
-    top: 0;
-    bottom: 0;
-    left: 50%;
+    /* Start the line at the first circle's center */
+    top: 20px;
+    /* End the line at the last circle's center */
+    bottom: 20px;
+    left: 31px;
     margin-left: -2px;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+    z-index: 0;
+}
+
+/* Each item on the timeline */
+.timeline.timeline-expanded::after {
+    bottom: 20px; /* Ensures it ends at the last visible item */
 }
 
 .timeline-item {
     position: relative;
-    background-color: inherit;
-    width: 50%;
-    margin-bottom: 50px; /* Increased spacing between items */
-    box-sizing: border-box;
-    clear: both;
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 15px;
+    margin-bottom: 40px;
 }
 
-.timeline-item.left {
-    float: left;
-    padding-right: 70px; /* Increased space for marker */
+/* Remove bottom margin from the very last item to align the line correctly */
+.timeline-item:last-child {
+    margin-bottom: 0;
 }
 
-.timeline-item.right {
-    float: right; /* Explicitly float right */
-    padding-left: 70px; /* Increased space for marker */
+.timeline-item.hidden {
+    /* Styles for hiding/showing items remain the same */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.6s ease-in-out;
 }
 
+.timeline.timeline-expanded .timeline-item.hidden {
+    /* Styles for hiding/showing items remain the same */
+    max-height: 1000px;
+    opacity: 1;
+    margin-bottom: 40px;
+}
+
+/* The circular marker on the timeline */
 .timeline-item::after {
     content: '';
     position: absolute;
-    width: 24px; /* Larger marker */
-    height: 24px; /* Larger marker */
+    width: 24px;
+    height: 24px;
     background-color: var(--primary-color);
     border: 4px solid var(--bg-alt-color);
     border-radius: 50%;
     z-index: 1;
     top: 20px;
+    left: 20px;
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
     transition: all 0.3s ease;
 }
 
-.timeline-item:hover::after {
-    transform: scale(1.2);
-    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.3);
-    background-color: var(--highlight-color);
+.timeline-item::after {
+    /* Marker styles remain the same */
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary-color);
+    border: 4px solid var(--bg-alt-color);
+    border-radius: 50%;
+    z-index: 1;
+    top: 20px;
+    left: 20px;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
 }
 
-.timeline-item.left::after {
-    right: -16px; /* Precise positioning */
-}
-
-.timeline-item.right::after {
-    left: -16px; /* Precise positioning */
-}
-
+/* The content box for each experience */
 .timeline-content {
-    padding: 25px 35px; /* Increased padding */
+    /* Content styles remain the same */
+    padding: 25px 35px;
     position: relative;
     border-radius: var(--border-radius);
     width: 100%;
     box-sizing: border-box;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: none; /* Remove border in favor of shadow */
+    border: none;
     background: linear-gradient(145deg, var(--card-bg), var(--card-bg));
 }
 
@@ -1300,40 +1329,8 @@ section {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Timeline content arrow pointers */
-.timeline-item.left .timeline-content::before {
-    content: '';
-    position: absolute;
-    top: 22px;
-    right: -15px;
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 15px solid var(--card-bg);
-    z-index: 1;
-}
-
-.timeline-item.right .timeline-content::before {
-    content: '';
-    position: absolute;
-    top: 22px;
-    left: -15px;
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 15px solid var(--card-bg);
-    z-index: 1;
-}
-
-/* Clear the timeline container to account for floated elements */
-.timeline::before {
-    content: "";
-    display: table;
-    clear: both;
-}
-
+/* Ensure the container clears correctly */
+.timeline::before,
 .timeline::after {
     content: "";
     display: table;
@@ -1455,34 +1452,26 @@ section {
     transition: transform 0.3s ease;
 }
 
+.btn-show-more {
+    display: block;
+    margin: 40px auto 0;
+    width: fit-content;
+}
+
 /* Media Queries - preserve mobile responsiveness */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 992) {
     .skills-container {
       flex-direction: column;
     }
     
     .timeline-item {
-        width: 100%;
         padding-left: 70px;
         padding-right: 25px;
-        float: none;
-        margin-bottom: 40px;
-    }
-    
-    .timeline-item.right {
-        left: 0;
-        float: none;
     }
     
     .timeline-item.left::after,
     .timeline-item.right::after {
         left: 18px;
-    }
-    
-    /* Reset content arrows for mobile */
-    .timeline-item.left .timeline-content::before,
-    .timeline-item.right .timeline-content::before {
-        display: none;
     }
 }
 
@@ -1494,7 +1483,7 @@ section {
 }
 
 .timeline-item {
-    width: 50%;
+    width: 100%;
     padding: 20px 40px;
     position: relative;
 }

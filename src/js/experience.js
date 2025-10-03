@@ -4,9 +4,7 @@
  */
 
 function initExperience() {
-  // Get the timeline container
   const timelineContainer = document.querySelector(".timeline");
-
   if (!timelineContainer) return;
 
   const experiences = [
@@ -167,78 +165,72 @@ function initExperience() {
     },
   ];
 
-  // Render the timeline
   renderExperienceTimeline(experiences, timelineContainer);
-
-  // Add click handlers for the timeline items
   addTimelineInteractivity();
 }
 
 /**
- * Renders the timeline with provided experience data
+ * Renders the timeline and adds a "Show More" button if needed
  * @param {Array} experiences - Array of experience objects
  * @param {HTMLElement} container - The container element
  */
 function renderExperienceTimeline(experiences, container) {
-  // Clear the container first
   container.innerHTML = "";
 
   experiences.forEach((exp, index) => {
-    const isEven = index % 2 === 0;
     const timelineItem = document.createElement("div");
-    timelineItem.className = `timeline-item ${isEven ? "left" : "right"}`;
+    timelineItem.className = "timeline-item";
     timelineItem.setAttribute("data-id", exp.id);
 
-    timelineItem.innerHTML = `
-            <div class="timeline-content">
-                <div class="timeline-date">${exp.period}</div>
-                <h3 class="timeline-title">${exp.title}</h3>
-                <h4 class="timeline-company">${exp.company}</h4>
-                <p class="timeline-description">${exp.description}</p>
-                <div class="timeline-details-toggle">
-                    <span>Show details</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="timeline-details">
-                    <h4>Responsibilities:</h4>
-                    <ul>
-                        ${exp.responsibilities
-                          .map((resp) => `<li>${resp}</li>`)
-                          .join("")}
-                    </ul>
-                    <div class="timeline-technologies">
-                        <h4>Technologies:</h4>
-                        <div class="tech-tags">
-                            ${exp.technologies
-                              .map(
-                                (tech) =>
-                                  `<span class="tech-tag">${tech}</span>`
-                              )
-                              .join("")}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+    if (index >= 3) {
+      timelineItem.classList.add("hidden");
+    }
 
+    timelineItem.innerHTML = `
+      <div class="timeline-content">
+          <div class="timeline-date">${exp.period}</div>
+          <h3 class="timeline-title">${exp.title}</h3>
+          <h4 class="timeline-company">${exp.company}</h4>
+          <p class="timeline-description">${exp.description}</p>
+          <div class="timeline-details-toggle">
+              <span>Show details</span>
+              <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="timeline-details">
+              <h4>Responsibilities:</h4>
+              <ul>${exp.responsibilities.map((resp) => `<li>${resp}</li>`).join("")}</ul>
+              <div class="timeline-technologies">
+                  <h4>Technologies:</h4>
+                  <div class="tech-tags">${exp.technologies.map((tech) => `<span class="tech-tag">${tech}</span>`).join("")}</div>
+              </div>
+          </div>
+      </div>
+    `;
     container.appendChild(timelineItem);
   });
+
+  if (experiences.length > 3) {
+    const showMoreButton = document.createElement("button");
+    showMoreButton.id = "show-more-exp";
+    showMoreButton.className = "btn btn-primary btn-show-more"; 
+    showMoreButton.textContent = "Show More";
+    container.appendChild(showMoreButton);
+  }
 }
 
 /**
- * Adds interactivity to the timeline items
+ * Adds interactivity to the timeline and "Show More" / "Show Less" button
  */
 function addTimelineInteractivity() {
-  // Get all timeline toggle buttons
   const toggleButtons = document.querySelectorAll(".timeline-details-toggle");
+  const showMoreButton = document.getElementById("show-more-exp");
+  const timelineContainer = document.querySelector(".timeline");
 
   toggleButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const timelineItem = button.closest(".timeline-item");
-      const details = timelineItem.querySelector(".timeline-details");
+      const details = button.nextElementSibling;
       const icon = button.querySelector("i");
-
-      // Toggle visibility
+      
       if (details.style.maxHeight) {
         details.style.maxHeight = null;
         button.querySelector("span").textContent = "Show details";
@@ -252,4 +244,18 @@ function addTimelineInteractivity() {
       }
     });
   });
+
+  if (showMoreButton && timelineContainer) {
+    showMoreButton.addEventListener("click", () => {
+      // Toggle a class on the parent container
+      timelineContainer.classList.toggle('timeline-expanded');
+
+      // Update button text based on the class
+      if (timelineContainer.classList.contains('timeline-expanded')) {
+        showMoreButton.textContent = "Show Less";
+      } else {
+        showMoreButton.textContent = "Show More";
+      }
+    });
+  }
 }
