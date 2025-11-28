@@ -59,7 +59,7 @@ function initProjects() {
         "Git",
         "Agile",
       ],
-      liveLink: "",
+      liveLink: "https://spark-eyes.com/",
       sourceLink: "",
     },
     {
