@@ -1,165 +1,187 @@
 /**
  * Skills module
- * Handles display and visualization of skills
+ * Renders skills as neofetch-style block character progress bars
  */
 
 function initSkills() {
-    // Get the skills container
     const skillsContainer = document.querySelector('.skills-container');
-    
-    if (!skillsContainer) {
-        console.error('Skills container not found');
-        return;
-    }
-    
-    console.log('Initializing skills module');
-    
-    // Skills data based on Artemii's resume
+    if (!skillsContainer) return;
+
     const skills = [
         {
-            category: 'Programming Languages',
+            category: 'Languages',
             items: [
+                { name: 'Python', level: 80 },
+                { name: 'Java', level: 85 },
+                { name: 'Dart', level: 90 },
+                { name: 'JavaScript', level: 80 },
+                { name: 'Rust', level: 75 }
+            ]
+        },
+        {
+            category: 'Frameworks',
+            items: [
+                { name: 'Spring Boot', level: 85 },
                 { name: 'Flutter', level: 90 },
-                { name: 'Java', level: 80 },
-                { name: 'JavaScript', level: 70 },
-                { name: 'Rust', level: 75 },
-                { name: 'SQL', level: 75 }
+                { name: 'TypeScript', level: 80 },
+                { name: 'React', level: 75 },
+                { name: 'Next.js', level: 70 },
+                { name: 'Node.js (Express)', level: 75 }
+            ]
+        },
+        {
+            category: 'Cloud & DevOps',
+            items: [
+                { name: 'AWS', level: 90 },
+                { name: 'Azure', level: 80 },
+                { name: 'Docker', level: 85 },
+                { name: 'GitHub Actions', level: 85 },
+                { name: 'CI/CD', level: 85 }
+            ]
+        },
+        {
+            category: 'Databases',
+            items: [
+                { name: 'MongoDB', level: 80 },
+                { name: 'Redis', level: 75 },
+                { name: 'PostgreSQL', level: 85 },
+                { name: 'Oracle', level: 70 }
+            ]
+        },
+        {
+            category: 'AI/ML',
+            items: [
+                { name: 'RAG', level: 80 },
+                { name: 'LLM', level: 80 },
+                { name: 'RLHF', level: 75 },
+                { name: 'Model Eval', level: 75 }
+            ]
+        },
+        {
+            category: 'Testing',
+            items: [
+                { name: 'JUnit', level: 85 },
+                { name: 'Mockito', level: 80 },
+                { name: 'TDD', level: 80 }
             ]
         },
         {
             category: 'Tools',
             items: [
-                { name: 'Git & GitHub', level: 100 },
-                { name: 'GitHub Actions', level: 85 },
-                { name: 'Docker', level: 70 },
-                { name: 'AWS', level: 95 },
-                { name: 'Jira', level: 100 }
-            ]
-        },
-        {
-            category: 'Soft Skills',
-            items: [
-                { name: 'Problem Solving', level: 100 },
-                { name: 'Project Management', level: 100 },
-                { name: 'Team Player', level: 100 },
-                { name: 'Strategic Communication', level: 100 },
-                { name: 'Leadership', level: 100 }
+                { name: 'Git', level: 95 },
+                { name: 'Jira', level: 90 },
+                { name: 'Postman', level: 85 },
+                { name: 'Firebase', level: 80 },
+                { name: 'VS Code', level: 90 },
+                { name: 'IntelliJ', level: 85 }
             ]
         }
     ];
-    
-    console.log('Skills data loaded:', skills.length, 'categories');
-    
-    // Render the skills
-    renderSkills(skills, skillsContainer);
-    
-    // Initialize skill animations
-    initSkillAnimations();
+
+    renderNeofetchSkills(skills, skillsContainer);
+    initSkillBarAnimation();
 }
 
 /**
- * Renders skills categories and progress bars
- * @param {Array} skillCategories - Array of skill category objects
- * @param {HTMLElement} container - The container element
+ * Renders skills in neofetch style with ASCII art and block bars
  */
-function renderSkills(skillCategories, container) {
-    // Clear the container first
+function renderNeofetchSkills(skillCategories, container) {
     container.innerHTML = '';
-    
-    console.log('Rendering', skillCategories.length, 'skill categories');
-    
+
+    const asciiArt = `
+    ___    ______
+   /   |  / ____/
+  / /| | / /_
+ / ___ |/ __/
+/_/  |_/_/
+    `.trim();
+
+    const output = document.createElement('div');
+    output.className = 'neofetch-output';
+
+    // ASCII art side
+    const asciiDiv = document.createElement('div');
+    asciiDiv.className = 'neofetch-ascii';
+    asciiDiv.textContent = asciiArt;
+    output.appendChild(asciiDiv);
+
+    // Info side
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'neofetch-info';
+
     skillCategories.forEach(category => {
-        console.log('Rendering category:', category.category, 'with', category.items.length, 'skills');
-        
-        // Create category container
-        const categoryDiv = document.createElement('div');
-        categoryDiv.className = 'skill-category animate-on-scroll fade-in-up';
-        categoryDiv.style.opacity = 1; // Force visibility
-        
-        // Create category header
-        const categoryHeader = document.createElement('h3');
-        categoryHeader.className = 'category-title';
-        categoryHeader.textContent = category.category;
-        categoryDiv.appendChild(categoryHeader);
-        
-        // Create skills list
-        const skillsList = document.createElement('div');
-        skillsList.className = 'skills-list';
-        
-        // Add each skill with progress bar
+        const block = document.createElement('div');
+        block.className = 'skill-category-block';
+
+        const title = document.createElement('div');
+        title.className = 'skill-category-title';
+        title.textContent = category.category;
+        block.appendChild(title);
+
         category.items.forEach(skill => {
-            const skillItem = document.createElement('div');
-            skillItem.className = 'skill-item';
-            
-            skillItem.innerHTML = `
-                <div class="skill-info">
-                    <span class="skill-name">${skill.name}</span>
-                    <span class="skill-percentage">${skill.level}%</span>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-progress-bar" data-level="${skill.level}"></div>
-                </div>
+            const row = document.createElement('div');
+            row.className = 'skill-row';
+
+            const maxBlocks = 20;
+            const filledCount = Math.round(skill.level / 5);
+            const emptyCount = maxBlocks - filledCount;
+
+            row.innerHTML = `
+                <span class="skill-name">${skill.name}</span>
+                <span class="skill-bar" data-filled="${filledCount}" data-empty="${emptyCount}"></span>
+                <span class="skill-pct">${skill.level}%</span>
             `;
-            
-            skillsList.appendChild(skillItem);
+
+            block.appendChild(row);
         });
-        
-        categoryDiv.appendChild(skillsList);
-        container.appendChild(categoryDiv);
+
+        infoDiv.appendChild(block);
     });
-    
-    console.log('Skill categories rendered:', container.children.length);
+
+    output.appendChild(infoDiv);
+    container.appendChild(output);
 }
 
 /**
- * Initializes animations for skill progress bars
+ * Animates skill bars character by character on scroll
  */
-function initSkillAnimations() {
-    // Get all progress bars
-    const progressBars = document.querySelectorAll('.skill-progress-bar');
-    
-    console.log('Animating', progressBars.length, 'skill progress bars');
-    
-    // Set initial width to 0 for all bars
-    progressBars.forEach(bar => {
-        bar.style.width = '0%';
-    });
-    
-    // Set up Intersection Observer
+function initSkillBarAnimation() {
+    const bars = document.querySelectorAll('.skill-bar');
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Get the skill level
-                const level = entry.target.getAttribute('data-level');
-                console.log('Animating skill bar to', level + '%');
-                
-                // Animate the progress bar
-                setTimeout(() => {
-                    entry.target.style.width = `${level}%`;
-                }, 200);
-                
-                // Unobserve after animation is triggered
-                observer.unobserve(entry.target);
+                const bar = entry.target;
+                const filled = parseInt(bar.dataset.filled);
+                const empty = parseInt(bar.dataset.empty);
+                animateBar(bar, filled, empty);
+                observer.unobserve(bar);
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    // Observe each progress bar
-    progressBars.forEach(bar => {
-        observer.observe(bar);
-    });
+    }, { threshold: 0.1 });
+
+    bars.forEach(bar => observer.observe(bar));
 }
 
-// Force re-render skills when page is fully loaded
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        const skillsContainer = document.querySelector('.skills-container');
-        if (skillsContainer && skillsContainer.children.length === 0) {
-            console.log('Force re-rendering skills after page load');
-            initSkills();
+/**
+ * Animates a single bar by adding block characters one at a time
+ */
+function animateBar(bar, filledCount, emptyCount) {
+    bar.textContent = '';
+    let i = 0;
+    const total = filledCount + emptyCount;
+
+    function addBlock() {
+        if (i < total) {
+            if (i < filledCount) {
+                bar.innerHTML += '\u2588';
+            } else {
+                bar.innerHTML += '<span class="empty">\u2591</span>';
+            }
+            i++;
+            setTimeout(addBlock, 25);
         }
-    }, 1500);
-}); 
+    }
+
+    addBlock();
+}

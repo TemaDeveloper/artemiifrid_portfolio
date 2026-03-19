@@ -3,203 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio of Artemii Fridriksen - Mobile App Developer & Backend Developer">
+    <meta name="description" content="Professional portfolio of Artemii Fridriksen - Full-Stack Developer specializing in backend systems, AI-integrated applications, and scalable architectures">
     <title>Artemii Fridriksen - Portfolio</title>
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM1RUY4RjdGQkQzMjExRUQ5NjMwOTBCQTJCMEQ2MDk0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM1RUY4RjgwQkQzMjExRUQ5NjMwOTQ8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPjxwYWNrZXQgZW5kPSJyIj8+e8JAvgAAAMpJLhA2AAADdUlEQVR42mL8//8/AyWAiYFCwEJIwX+G+ZlQngBQA/9/A+KTIEUY4J23g/8XmqsfgLgYSHr8D+cHACV+f/ifxHAa3RWMDGUQWx6IZP7/z8DAkN0fDbLlPQMDPAzghmNTjM0QmB5kA3mgBkFodAMUgXgD1AX/0QMRZnA/kG0BxSLIhqAbgvQMHzp7A1Qhugvo4CvUkP1IsQg34P9/Rqh/sYcBrhdHLKLEIjaALRbRDcGmOBotDHpJjESshn0l5JSsQD8epRgABBgA9C86Uf0ViH8AAAAASUVORK5CYII=">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500;700&family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script>
-        window.addEventListener('error', function(event) {
-            console.error('JS Error:', event.message, 'at', event.filename, 'line', event.lineno);
-        });
-    </script>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="#home">who am I?</a>
-            </div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                <li class="nav-item">
-                    <div class="theme-switch-wrapper">
-                        <label class="theme-switch" for="checkbox">
-                            <input type="checkbox" id="checkbox" />
-                            <div class="slider">
-                                <i class="fas fa-sun sun-icon"></i>
-                                <i class="fas fa-moon moon-icon"></i>
+    <!-- Boot Sequence Overlay -->
+    <div class="boot-sequence" id="boot-sequence">
+        <div class="boot-content" id="boot-content"></div>
+    </div>
+
+    <div class="terminal-shell">
+        <header class="terminal-header">
+            <nav class="terminal-nav">
+                <div class="terminal-nav-left">
+                    <span class="terminal-user">artemii</span><span class="terminal-separator">@</span><span class="terminal-path">portfolio</span><span class="terminal-separator">:</span><span class="terminal-path">~</span><span class="terminal-prompt-char">$</span>
+                </div>
+                <ul class="terminal-nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-cmd active">home</a></li>
+                    <li><a href="#about" class="nav-cmd">about</a></li>
+                    <li><a href="#experience" class="nav-cmd">experience</a></li>
+                    <li><a href="#projects" class="nav-cmd">projects</a></li>
+                    <li><a href="#skills" class="nav-cmd">skills</a></li>
+                    <li><a href="#contact" class="nav-cmd">contact</a></li>
+                    <li><a href="CV_ARTEMII_FRIDRIKSEN.pdf" class="nav-cmd nav-cv" target="_blank"><i class="fas fa-file-alt"></i> cv</a></li>
+                </ul>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
+
+        <main class="terminal-output">
+            <!-- HERO -->
+            <section id="home" class="terminal-section hero-section">
+                <div class="container">
+                    <div class="terminal-window">
+                        <div class="terminal-titlebar">
+                            <div class="terminal-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
                             </div>
-                        </label>
+                            <span class="terminal-title">./welcome.sh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">whoami</span>
+                            </div>
+                            <div class="hero-profile-centered">
+                                <img src="assets/author.png" alt="Artemii Fridriksen" loading="lazy">
+                            </div>
+                            <pre class="ascii-name">
+    _    ____ _____ _____ __  __ ___ ___   _____ ____  ___ ____  ____  ___ _  _______ _____ _   _
+   / \  |  _ \_   _| ____|  \/  |_ _|_ _| |  ___|  _ \|_ _|  _ \|  _ \|_ _| |/ / ____| ____| \ | |
+  / _ \ | |_) || | |  _| | |\/| || | | |  | |_  | |_) || || | | | |_) || || ' /|  _| |  _| |  \| |
+ / ___ \|  _ < | | | |___| |  | || | | |  |  _| |  _ < | || |_| |  _ < | || . \| |___| |___| |\  |
+/_/   \_\_| \_\|_| |_____|_|  |_|___|___| |_|   |_| \_\___|____/|_| \_\___|_|\_\_____|_____|_| \_|
+                            </pre>
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">cat role.txt</span>
+                            </div>
+                            <div class="hero-output">
+                                <span class="typed-role" id="typed-role"></span><span class="cursor-blink"></span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">cat summary.txt</span>
+                            </div>
+                            <p class="hero-description">Full-Stack Developer specializing in backend systems and scalable architectures using Spring Boot, Docker, and cloud platforms. Strong background in AI-integrated applications, including RAG pipelines and LLM evaluation.</p>
+                            <div class="hero-actions">
+                                <span class="prompt">$</span>
+                                <a href="#contact" class="cmd-link">./contact.sh</a>
+                                <span class="hero-separator">|</span>
+                                <a href="#projects" class="cmd-link">ls ~/projects</a>
+                            </div>
+                        </div>
                     </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+                </div>
+            </section>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm <span class="highlight">Artemii Fridriksen</span></h1>
-                <h2 class="hero-subtitle"></h2>
-                <p class="hero-description">Highly motivated and results-driven software developer with experience in mobile and backend development.</p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Contact Me</a>
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
+            <!-- ABOUT -->
+            <section id="about" class="terminal-section">
+                <div class="container">
+                    <div class="terminal-window">
+                        <div class="terminal-titlebar">
+                            <div class="terminal-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span class="terminal-title">cat about.md</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">cat about.md</span>
+                            </div>
+                            <div class="terminal-output-block about-bio">
+                                <p>I'm a Full-Stack Developer specializing in backend systems and scalable architectures using Spring Boot, Docker, and cloud platforms. I have experience delivering production-ready features in Agile teams, with a focus on test-driven development and system reliability.</p>
+                                <p>Beyond full-stack development, I have a strong background in AI-integrated applications, including RAG pipelines and LLM evaluation. I also craft cross-platform mobile apps with Flutter and build robust backend services. Always eager to learn and take on new challenges, I'm committed to building impactful software solutions.</p>
+                            </div>
+                            <div class="terminal-line" style="margin-top: 16px;">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">env | grep INFO</span>
+                            </div>
+                            <div class="terminal-output-block about-info">
+                                <div class="info-row"><span class="info-key">NAME</span>=<span class="info-val">"Artemii Fridriksen"</span></div>
+                                <div class="info-row"><span class="info-key">EMAIL</span>=<span class="info-val">"artemiifrid@gmail.com"</span></div>
+                                <div class="info-row"><span class="info-key">PHONE</span>=<span class="info-val">"+1 (437) 545-2728"</span></div>
+                                <div class="info-row"><span class="info-key">EDUCATION</span>=<span class="info-val">"Seneca Polytechnic, Computer Programming and Analysis (Sep 2024 - Dec 2026)"</span></div>
+                                <div class="info-row"><span class="info-key">STATUS</span>=<span class="info-val">"Available for opportunities"</span></div>
+                            </div>
+                            <div class="cv-download" style="margin-top: 16px;">
+                                <div class="terminal-line">
+                                    <span class="prompt">$</span>
+                                    <a href="CV_ARTEMII_FRIDRIKSEN.pdf" class="cmd-link" target="_blank">wget CV_ARTEMII_FRIDRIKSEN.pdf</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-image">
-                    <img src="assets/author.png" 
-                         alt="Artemii Fridriksen"
-                         loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a passionate mobile and backend developer with a strong focus on building scalable and efficient applications. With experience in Flutter and Android (Java), I craft intuitive, high-performance mobile apps.</p>
-                    <p>Beyond mobile development, I specialize in backend systems, leveraging Axum, OAuth2.0, Docker, and PostgreSQL to ensure secure authentication and seamless data management. I enjoy optimizing applications for speed, security, and user experience. Always eager to learn and take on new challenges, I'm committed to building impactful software solutions.</p>
-                </div>
-                <div class="personal-info">
-                    <div class="info-item">
-                        <span class="info-title">Name:</span>
-                        <span class="info-value">Artemii Fridriksen</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-title">Email:</span>
-                        <span class="info-value">artemiifrid@gmail.com</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-title">Phone:</span>
-                        <span class="info-value">+1 (437) 545-2728</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-title">Education:</span>
-                        <span class="info-value">Seneca Polytechnic, Advanced Computer Programming/Analysis</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-title">Availability:</span>
-                        <span class="info-value">Available for opportunities</span>
+            <!-- EXPERIENCE -->
+            <section id="experience" class="terminal-section">
+                <div class="container">
+                    <div class="terminal-window">
+                        <div class="terminal-titlebar">
+                            <div class="terminal-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span class="terminal-title">git log --oneline</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">git log --oneline --all</span>
+                            </div>
+                            <div class="git-log-entries" id="experience-container">
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
+            <!-- PROJECTS -->
+            <section id="projects" class="terminal-section">
+                <div class="container">
+                    <div class="terminal-window">
+                        <div class="terminal-titlebar">
+                            <div class="terminal-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span class="terminal-title">ls -la ~/projects/</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="projects-cmd-line">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">ls -la ~/projects/</span>
+                                <div class="filter-flags">
+                                    <button class="filter-cmd active" data-filter="all">--all</button>
+                                    <button class="filter-cmd" data-filter="web">--web</button>
+                                    <button class="filter-cmd" data-filter="mobile">--mobile</button>
+                                    <button class="filter-cmd" data-filter="backend">--backend</button>
+                                </div>
+                            </div>
+                            <div class="projects-grid">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </div>
-    </section>
+            </section>
 
-    <section id="skills" class="skills">
+            <!-- SKILLS -->
+            <section id="skills" class="terminal-section">
+                <div class="container">
+                    <div class="terminal-window">
+                        <div class="terminal-titlebar">
+                            <div class="terminal-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span class="terminal-title">neofetch --skills</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">neofetch --skills</span>
+                            </div>
+                            <div class="skills-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" class="terminal-section">
+                <div class="container">
+                    <div class="terminal-window">
+                        <div class="terminal-titlebar">
+                            <div class="terminal-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span class="terminal-title">mail artemii@dev</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="cmd-text">mail artemii@dev</span>
+                            </div>
+                            <div class="contact-terminal">
+                                <div class="contact-info-lines">
+                                    <div class="contact-row">
+                                        <i class="fas fa-envelope"></i>
+                                        <span class="info-key">EMAIL</span>:
+                                        <span class="info-val">artemiifrid@gmail.com</span>
+                                    </div>
+                                    <div class="contact-row">
+                                        <i class="fas fa-phone"></i>
+                                        <span class="info-key">PHONE</span>:
+                                        <span class="info-val">+1 (437) 545-2728</span>
+                                    </div>
+                                    <div class="contact-row">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span class="info-key">LOCATION</span>:
+                                        <span class="info-val">Toronto, Canada</span>
+                                    </div>
+                                    <div class="contact-row">
+                                        <i class="fab fa-linkedin"></i>
+                                        <span class="info-key">LINKEDIN</span>:
+                                        <a href="https://www.linkedin.com/in/artemii-fridriksen-44082528b/" target="_blank">artemii-fridriksen</a>
+                                    </div>
+                                    <div class="contact-row">
+                                        <i class="fab fa-github"></i>
+                                        <span class="info-key">GITHUB</span>:
+                                        <a href="https://github.com/TemaDeveloper" target="_blank">TemaDeveloper</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="terminal-footer">
             <div class="container">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-container">
-                    </div>
-            </div>
-        </section>
-        
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="mobile">Mobile Development</button>
-                <button class="filter-btn" data-filter="backend">Back-end Development</button>
-            </div>
-            <div class="projects-grid">
+                <div class="footer-terminal-line">
+                    <span class="prompt">$</span>
+                    <span>echo "Developed with enthusiasm" && exit 0</span>
                 </div>
-        </div>
-    </section>
-
-    
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>artemiifrid@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p>+1 (437) 545-2728</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="contact-details">
-                            <h3>Location</h3>
-                            <p>North York, Canada</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div class="contact-details">
-                            <h3>LinkedIn</h3>
-                            <p><a href="https://www.linkedin.com/in/artemii-fridriksen-44082528b/" target="_blank">linkedin.com/in/artemii-fridriksen</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <div class="contact-details">
-                            <h3>GitHub</h3>
-                            <p><a href="https://github.com/TemaDeveloper" target="_blank">github.com/TemaDeveloper</a></p>
-                        </div>
-                    </div>
+                <div class="footer-links">
+                    <a href="https://github.com/TemaDeveloper" target="_blank">github</a>
+                    <span class="footer-pipe">|</span>
+                    <a href="https://www.linkedin.com/in/artemii-fridriksen-44082528b/" target="_blank">linkedin</a>
+                    <span class="footer-pipe">|</span>
+                    <a href="https://www.instagram.com/artemiideveloper?igsh=MW1wZzNpbm5jd3NkNA%3D%3D&utm_source=qr" target="_blank">instagram</a>
                 </div>
+                <div class="footer-exit">Process completed. Exit code: 0</div>
             </div>
-        </div>
-    </section>
+        </footer>
+    </div>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Artemii Fridriksen</h3>
-                </div>
-                <div class="footer-social">
-                    <a href="https://github.com/TemaDeveloper" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/artemii-fridriksen-44082528b/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/artemiideveloper?igsh=MW1wZzNpbm5jd3NkNA%3D%3D&utm_source=qr" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Developed with enthusiasm</p>
-            </div>
-        </div>
-    </footer>
-
+    <script src="js/terminal.js" defer></script>
     <script src="js/navigation.js" defer></script>
     <script src="js/animation.js" defer></script>
     <script src="js/experience.js" defer></script>
