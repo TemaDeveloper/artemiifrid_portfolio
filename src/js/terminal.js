@@ -1,7 +1,25 @@
 /**
  * Terminal effects module
- * Handles boot sequence, typing helpers, and terminal-specific animations
+ * Handles boot sequence, ASCII art filling animation, and terminal-specific effects
  */
+
+const ASCII_NAME = [
+    "   \u2588    \u2588\u2588\u2588\u2588\u2588\u2588  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2588     \u2588 \u2588\u2588\u2588 \u2588\u2588\u2588",
+    "  \u2588 \u2588   \u2588     \u2588    \u2588    \u2588       \u2588\u2588   \u2588\u2588  \u2588   \u2588",
+    " \u2588   \u2588  \u2588     \u2588    \u2588    \u2588       \u2588 \u2588 \u2588 \u2588  \u2588   \u2588",
+    "\u2588     \u2588 \u2588\u2588\u2588\u2588\u2588\u2588     \u2588    \u2588\u2588\u2588\u2588\u2588   \u2588  \u2588  \u2588  \u2588   \u2588",
+    "\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2588   \u2588      \u2588    \u2588       \u2588     \u2588  \u2588   \u2588",
+    "\u2588     \u2588 \u2588    \u2588     \u2588    \u2588       \u2588     \u2588  \u2588   \u2588",
+    "\u2588     \u2588 \u2588     \u2588    \u2588    \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2588     \u2588 \u2588\u2588\u2588 \u2588\u2588\u2588",
+    "",
+    "\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2588\u2588  \u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2588\u2588  \u2588\u2588\u2588\u2588\u2588\u2588  \u2588\u2588\u2588 \u2588    \u2588  \u2588\u2588\u2588\u2588\u2588  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2588     \u2588",
+    "\u2588       \u2588     \u2588  \u2588  \u2588     \u2588 \u2588     \u2588  \u2588  \u2588   \u2588  \u2588     \u2588 \u2588       \u2588\u2588    \u2588",
+    "\u2588       \u2588     \u2588  \u2588  \u2588     \u2588 \u2588     \u2588  \u2588  \u2588  \u2588   \u2588       \u2588       \u2588 \u2588   \u2588",
+    "\u2588\u2588\u2588\u2588\u2588   \u2588\u2588\u2588\u2588\u2588\u2588   \u2588  \u2588     \u2588 \u2588\u2588\u2588\u2588\u2588\u2588   \u2588  \u2588\u2588\u2588     \u2588\u2588\u2588\u2588\u2588  \u2588\u2588\u2588\u2588\u2588   \u2588  \u2588  \u2588",
+    "\u2588       \u2588   \u2588    \u2588  \u2588     \u2588 \u2588   \u2588    \u2588  \u2588  \u2588         \u2588 \u2588       \u2588   \u2588 \u2588",
+    "\u2588       \u2588    \u2588   \u2588  \u2588     \u2588 \u2588    \u2588   \u2588  \u2588   \u2588  \u2588     \u2588 \u2588       \u2588    \u2588\u2588",
+    "\u2588       \u2588     \u2588 \u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2588\u2588  \u2588     \u2588 \u2588\u2588\u2588 \u2588    \u2588  \u2588\u2588\u2588\u2588\u2588  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2588     \u2588",
+];
 
 function initBootSequence() {
     const bootOverlay = document.getElementById('boot-sequence');
@@ -30,30 +48,74 @@ function initBootSequence() {
         }, index * 180);
     });
 
+    const totalBootTime = bootLines.length * 180 + 400;
+
     // Fade out boot sequence
     setTimeout(() => {
         bootOverlay.classList.add('fade-out');
         setTimeout(() => {
             bootOverlay.style.display = 'none';
         }, 500);
-    }, bootLines.length * 180 + 400);
+    }, totalBootTime);
+
+    // Start ASCII filling animation after boot finishes
+    setTimeout(() => {
+        initAsciiFillingAnimation();
+    }, totalBootTime + 300);
 }
 
 /**
- * Types text character by character into an element
+ * Claude-style ASCII art filling animation
+ * Characters appear progressively with a sweep effect
  */
-function typeText(element, text, speed, callback) {
-    let i = 0;
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed + Math.random() * 30);
-        } else if (callback) {
-            callback();
+function initAsciiFillingAnimation() {
+    const container = document.getElementById('ascii-name');
+    if (!container) return;
+
+    // Build a 2D grid of characters
+    const maxLen = Math.max(...ASCII_NAME.map(l => l.length));
+    const grid = ASCII_NAME.map(line => line.padEnd(maxLen, ' '));
+    const rows = grid.length;
+    const cols = maxLen;
+
+    // Create span elements for each character
+    const spanGrid = [];
+    container.textContent = '';
+
+    for (let r = 0; r < rows; r++) {
+        const rowSpans = [];
+        for (let c = 0; c < cols; c++) {
+            const span = document.createElement('span');
+            span.textContent = grid[r][c];
+            span.className = 'ascii-char';
+            span.style.opacity = '0';
+            container.appendChild(span);
+            rowSpans.push(span);
+        }
+        container.appendChild(document.createTextNode('\n'));
+        spanGrid.push(rowSpans);
+    }
+
+    // Animate: sweep from left to right with a diagonal wave
+    const totalChars = rows * cols;
+    const baseDuration = 800; // total animation time in ms
+    const charDelay = baseDuration / (rows + cols);
+
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            const char = spanGrid[r][c];
+            if (char.textContent === ' ') {
+                char.style.opacity = '1';
+                continue;
+            }
+            // Diagonal wave: delay based on row + column
+            const delay = (r + c) * charDelay;
+            setTimeout(() => {
+                char.style.opacity = '1';
+                char.classList.add('ascii-char-visible');
+            }, delay);
         }
     }
-    type();
 }
 
 // Run boot sequence immediately

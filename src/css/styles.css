@@ -407,6 +407,15 @@ ul {
     margin: 8px 0 16px;
     white-space: pre;
     overflow-x: auto;
+    text-align: center;
+}
+
+.ascii-char {
+    transition: opacity 0.15s ease-out;
+}
+
+.ascii-char-visible {
+    text-shadow: 0 0 8px rgba(212, 149, 106, 0.4);
 }
 
 .hero-output {
@@ -1035,7 +1044,7 @@ ul {
     }
 
     .ascii-name {
-        font-size: clamp(0.25rem, 2.5vw, 0.5rem);
+        font-size: clamp(0.2rem, 1.8vw, 0.4rem);
     }
 
     .hero-profile-centered img {
