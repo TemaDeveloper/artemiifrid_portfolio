@@ -10,6 +10,27 @@ function initExperience() {
   const experiences = [
     {
       id: 1,
+      title: "Founder",
+      company: "Persona AI",
+      period: "2026 - Present",
+      description:
+        "Founded and built Persona AI from the ground up — an AI software product for conversation automation with precise persona control.",
+      responsibilities: [
+        "Owned the full lifecycle from concept to execution: product strategy, UX, brand positioning, landing page, dashboard, onboarding, automation workflows, AI behavior design, infrastructure, billing, and launch strategy.",
+        "Built the platform to help automate communication while maintaining consistent tone, personality, boundaries, and identity.",
+        "Worked across product, engineering, design, and growth to take the company from idea to working software.",
+      ],
+      technologies: [
+        "AI/ML",
+        "Product Strategy",
+        "UX Design",
+        "Full-Stack Development",
+        "Infrastructure",
+        "Automation",
+      ],
+    },
+    {
+      id: 2,
       title: "LLM Trainer",
       company: "Outlier",
       period: "November 2025 - February 2026",
@@ -27,7 +48,7 @@ function initExperience() {
       ],
     },
     {
-      id: 2,
+      id: 3,
       title: "Full-Stack Developer Intern",
       company: "AI Financial Company",
       period: "September 2025 - January 2026",
@@ -53,7 +74,7 @@ function initExperience() {
       ],
     },
     {
-      id: 3,
+      id: 4,
       title: "Software Developer",
       company: "SparkEyes",
       period: "January 2025 - October 2025",
@@ -79,7 +100,7 @@ function initExperience() {
       ],
     },
     {
-      id: 4,
+      id: 5,
       title: "Full-Stack Developer",
       company: "Falcon",
       period: "May 2024 - June 2024",
@@ -104,7 +125,7 @@ function initExperience() {
       ],
     },
     {
-      id: 5,
+      id: 6,
       title: "Back-end Developer (Pet Project)",
       company: "Donutly",
       period: "October 2024 - Present",
@@ -136,7 +157,7 @@ function initExperience() {
       ],
     },
     {
-      id: 6,
+      id: 7,
       title: "Back-end Developer (Pet Project)",
       company: "Chat Application",
       period: "August 2024 - October 2024",
@@ -158,7 +179,7 @@ function initExperience() {
       ],
     },
     {
-      id: 7,
+      id: 8,
       title: "Back-end Developer (Pet Project)",
       company: "Blogging Website",
       period: "July 2024 - August 2024",
@@ -189,7 +210,7 @@ function initExperience() {
 function renderGitLog(experiences, container) {
   container.innerHTML = "";
 
-  const hashes = ["f4a2c1d", "b7e3d9a", "c1f8e2b", "a9d4f7c", "e6b1a3d", "d2c9e5f", "8a7b6c1"];
+  const hashes = ["e3d7f1a", "f4a2c1d", "b7e3d9a", "c1f8e2b", "a9d4f7c", "e6b1a3d", "d2c9e5f", "8a7b6c1"];
 
   experiences.forEach((exp, index) => {
     const entry = document.createElement("div");
